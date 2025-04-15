@@ -1,0 +1,67 @@
+﻿<Window x:Class="Lab5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab5"
+        Title="Superheroes Manager" Height="500" Width="600">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,20">
+            <TextBlock Text="Name:" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="NameTextBox" Style="{StaticResource TextBoxStyle}"/>
+
+            <TextBlock Text="Alias:" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="AliasTextBox" Style="{StaticResource TextBoxStyle}"/>
+
+            <TextBlock Text="Superpower:" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="SuperpowerTextBox" Style="{StaticResource TextBoxStyle}"/>
+
+            <TextBlock Text="Power Level:" Style="{StaticResource TextBlockStyle}"/>
+            <ComboBox x:Name="PowerLevelComboBox" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Low (25%)" Tag="Low"/>
+                <ComboBoxItem Content="Medium (50%)" Tag="Medium"/>
+                <ComboBoxItem Content="High (75%)" Tag="High"/>
+                <ComboBoxItem Content="Extreme (100%)" Tag="Extreme"/>
+            </ComboBox>
+
+            <TextBlock Text="Superpowers:" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="SuperpowersTextBox" Style="{StaticResource TextBoxStyle}"/>
+
+            <TextBlock Text="Photo:" Style="{StaticResource TextBlockStyle}"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Choose Photo" Click="ChoosePhoto_Click" Style="{StaticResource ButtonStyle}"/>
+                <Image x:Name="HeroImage" Width="100" Height="100" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <Button Content="Add Superhero" Click="AddSuperhero_Click" Style="{StaticResource ButtonStyle}"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="HeroesListBox">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="5" Padding="10" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Alias}"/>
+                                <Button Content="View Details" Click="ViewDetails_Click" Tag="{Binding Id}" Margin="5"/>
+                                 
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Edit" Click="EditSuperhero_Click" Tag="{Binding Id}" Margin="5"/>
+                                    <Button Content="Delete" Click="DeleteSuperhero_Click" Tag="{Binding Id}" Margin="5"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button x:Name="FinishEditingButton" Content="Finish Editing" Click="FinishEditing_Click" 
+                Visibility="Collapsed" Margin="400,10,0,0" Width="120" Height="30"/>
+
+    </Grid>
+</Window>
