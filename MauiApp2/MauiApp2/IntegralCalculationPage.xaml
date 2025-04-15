@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.IntegralCalculationPage"
+             Title="Integral Calculation">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label x:Name="StatusLabel"
+               Text="Welcome to .NET MAUI!"
+               FontSize="18"
+               HorizontalOptions="Center" />
+
+        <ProgressBar x:Name="ComputationProgressBar"
+             Progress="0"
+             HeightRequest="10"
+             HorizontalOptions="FillAndExpand"/>
+
+        <Label x:Name="ProgressLabel"
+       Text="0%"
+       FontSize="16"
+       HorizontalOptions="Center"/>
+
+
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Button Text="Start"
+                    Clicked="OnStartComputation"
+                    x:Name="BtnStart"
+                    BackgroundColor="green"
+                    TextColor="White"/>
+            <Button Text="Cancel"
+                    Clicked="OnCancelComputation"
+                    BackgroundColor="blue"
+                    TextColor="White"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

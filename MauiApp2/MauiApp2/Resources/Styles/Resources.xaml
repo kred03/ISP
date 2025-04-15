@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style x:Key="CalcButton" TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="BackgroundColor" Value="#d9d9d9"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="HeightRequest" Value="60"/>
+        <Setter Property="WidthRequest" Value="60"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style x:Key="OperatorButton" TargetType="Button" BasedOn="{StaticResource CalcButton}">
+        <Setter Property="BackgroundColor" Value="#f39c12"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+
+    <Style x:Key="ClearButton" TargetType="Button" BasedOn="{StaticResource CalcButton}">
+        <Setter Property="BackgroundColor" Value="#e74c3c"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+
+    <Style x:Key="EqualsButton" TargetType="Button" BasedOn="{StaticResource CalcButton}">
+        <Setter Property="BackgroundColor" Value="#2ecc71"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+
+    <Style x:Key="SpecialButton" TargetType="Button" BasedOn="{StaticResource CalcButton}">
+        <Setter Property="BackgroundColor" Value="#3498db"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+
+</ResourceDictionary>
